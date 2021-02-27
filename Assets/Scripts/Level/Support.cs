@@ -45,7 +45,7 @@ public class Support : MonoBehaviour, ISelectable, ISupport
         }
         catch (MissingReferenceException e)
         {
-            Debug.LogError(e);
+            
         }
     }
 
