@@ -6,12 +6,12 @@ using System;
 public class MouseSelection : MonoBehaviour
 {
     public static MouseSelection Instance { get; private set; }
-    
+
     private Camera cam;
 
     private ISelectable selected;
     private ISelectable lastSelected;
-    private HashSet<ISelectable> selectableList = new HashSet<ISelectable>();
+    public HashSet<ISelectable> selectableList = new HashSet<ISelectable>(); // list of selected objects to reset texture after hovering
 
     private BoxCollider platformPlacementCollider;
 
@@ -66,7 +66,7 @@ public class MouseSelection : MonoBehaviour
             }
 
             lastSelected = selected;
-        }   
+        }
     }
 
     /// <summary>
@@ -86,7 +86,7 @@ public class MouseSelection : MonoBehaviour
         {
             Character.Instance.HoldingPlatform?.PlacePlatform();
             selected.Clicked();
-        }   
+        }
     }
 
     /// <summary>

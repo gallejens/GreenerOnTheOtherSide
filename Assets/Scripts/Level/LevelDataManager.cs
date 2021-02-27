@@ -29,6 +29,9 @@ public class LevelDataManager : MonoBehaviour
         Destroy(lastCreateLevelObject);
         lastCreateLevelObject = Instantiate(CreateLevelPrefab, Vector3.zero, Quaternion.identity) as GameObject;
         lastCreateLevelObject.GetComponent<CreateLevel>().Create(levelDataList[LevelNumber]);
+
+        // We reset the list of selectables otherwise we get nullexception when a new level gets loaded and we try to reset its texture
+        MouseSelection.Instance.selectableList.Clear(); 
     }
 
     /// <summary>

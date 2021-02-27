@@ -65,15 +65,22 @@ public class Platform : MonoBehaviour, ISelectable, IPlatform
     {
         if (!playerIsHolding)
         {
-            if (selected)
+            try
             {
-                rd.material = hoveringMaterial;
-                Hovering = true;
+                if (selected)
+                {
+                    rd.material = hoveringMaterial;
+                    Hovering = true;
+                }
+                else
+                {
+                    rd.material = normalMaterial;
+                    Hovering = false;
+                }
             }
-            else
+            catch (MissingReferenceException e)
             {
-                rd.material = normalMaterial;
-                Hovering = false;
+                Debug.Log(e);
             }
         }  
     }
