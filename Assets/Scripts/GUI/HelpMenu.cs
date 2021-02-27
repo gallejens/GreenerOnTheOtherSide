@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreditMenu : MonoBehaviour
+public class HelpMenu : MonoBehaviour
 {
-    public static CreditMenu Instance { get; private set; }
+    public static HelpMenu Instance { get; private set; }
 
     private void Awake()
     {

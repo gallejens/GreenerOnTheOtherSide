@@ -36,16 +36,14 @@ public class SelectMenu : MonoBehaviour
 
     public void LevelButtonClicked(int number)
     {
-        PlayingUI.Instance.Enable(number);
-
         Disable();
+        PlayingUI.Instance.Enable(number);
     }
 
     public void BackButtonPressed()
     {
-        MainMenu.Instance.Enable();
-
         Disable();
+        MainMenu.Instance.Enable();
     }
 
     public void Enable()
@@ -58,8 +56,6 @@ public class SelectMenu : MonoBehaviour
             }
 
             LevelSelectButtons[i - 1].transform.Find("Check").gameObject.SetActive(SaveDataManager.LoadedSaveData.Contains(i));
-
-            Debug.Log(LevelDataManager.levelDataList.Count);
         }
 
         if (SaveDataManager.LoadedSaveData.Count == 0)

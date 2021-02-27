@@ -11,10 +11,15 @@ public class MainMenu : MonoBehaviour, IOptionsBack
         Instance = this;
     }
 
+    private void Start()
+    {
+        LevelDataManager.Instance.NewLevel(0);
+    }
+
     public void PlayButtonPressed()
     {
         Disable();
-        PlayingUI.Instance.Enable(GenericMethods.FindFirstUncompletedLevel(1));
+        PlayingUI.Instance.Enable(GenericMethods.FindFirstUncompletedLevel(1) == -1 ? LevelDataManager.levelDataList.Count - 1 : GenericMethods.FindFirstUncompletedLevel(1));
     }
 
     public void SelectButtonPressed()
@@ -38,6 +43,12 @@ public class MainMenu : MonoBehaviour, IOptionsBack
     public void QuitButtonPressed()
     {
         Application.Quit();
+    }
+
+    public void HelpButtonPressed()
+    {
+        Disable();
+        HelpMenu.Instance.Enable();
     }
 
     public void Enable()

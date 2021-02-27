@@ -55,7 +55,7 @@ public static class GenericMethods
             if (!SaveDataManager.LoadedSaveData.Contains(i)) return i;
         }
 
-        return 0;
+        return -1;
     }
 }
 

@@ -14,8 +14,14 @@ public class PauseMenu : MonoBehaviour, IOptionsBack
 
     public void ResumeButtonPressed()
     {
-        PlayingUI.Instance.Enable();
         Disable();
+        PlayingUI.Instance.Enable();
+    }
+
+    public void RestartButtonPressed()
+    {
+        Disable();
+        PlayingUI.Instance.Enable(LevelDataManager.LevelNumber);
     }
 
     public void OptionsButtonPressed()
@@ -26,8 +32,8 @@ public class PauseMenu : MonoBehaviour, IOptionsBack
 
     public void MenuButtonPressed()
     {
-        MainMenu.Instance.Enable();
         Disable();
+        MainMenu.Instance.Enable();
     }
 
     public void Enable()

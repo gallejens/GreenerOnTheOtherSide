@@ -25,20 +25,20 @@ public class FinishMenu : MonoBehaviour
 
     public void NextButtonPressed()
     {
-        PlayingUI.Instance.Enable(GenericMethods.FindFirstUncompletedLevel(LevelDataManager.LevelNumber));
         Disable();
+        PlayingUI.Instance.Enable(GenericMethods.FindFirstUncompletedLevel(LevelDataManager.LevelNumber) == -1 ? LevelDataManager.levelDataList.Count - 1 : GenericMethods.FindFirstUncompletedLevel(LevelDataManager.LevelNumber));
     }
 
     public void ReplayButtonPressed()
     {
-        PlayingUI.Instance.Enable(LevelDataManager.LevelNumber);
         Disable();
+        PlayingUI.Instance.Enable(LevelDataManager.LevelNumber);
     }
 
     public void MenuButtonPressed()
     {
-        MainMenu.Instance.Enable();
         Disable();
+        MainMenu.Instance.Enable();
     }
 
     private void Enable()

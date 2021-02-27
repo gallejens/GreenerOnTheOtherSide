@@ -19,10 +19,6 @@ public class LevelDataManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-    }
-
-    private void Start()
-    {
         levelDataList = GenericMethods.ReadJSONFile<List<LevelData>>("leveldata");
     }
 
