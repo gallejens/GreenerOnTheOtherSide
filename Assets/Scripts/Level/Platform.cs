@@ -92,6 +92,8 @@ public class Platform : MonoBehaviour, ISelectable, IPlatform
                 GetComponent<BoxCollider>().enabled = false;
                 rd.material = clickedMaterial;
                 tf.position = new Vector3(tf.position.x, tf.position.y + 0.3f, tf.position.z);
+
+                AudioController.Instance.PlatformPicked();
             }
         }
     }
@@ -154,6 +156,8 @@ public class Platform : MonoBehaviour, ISelectable, IPlatform
             }
 
             tf.position = new Vector3(tf.position.x, tf.position.y - 0.3f, tf.position.z);
+
+            AudioController.Instance.PlatformPlaced();
         }
     } 
 }

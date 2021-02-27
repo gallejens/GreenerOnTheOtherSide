@@ -38,11 +38,9 @@ public class PauseMenu : MonoBehaviour, IOptionsBack
 
     public void Enable()
     {
+        AudioController.Instance.GamePaused();
         GenericMethods.SetAllChildrenActive(gameObject, true);
     }
 
-    public void Disable()
-    {
-        GenericMethods.SetAllChildrenActive(gameObject, false);
-    }
+    public void Disable() => GenericMethods.SetAllChildrenActive(gameObject, false);
 }

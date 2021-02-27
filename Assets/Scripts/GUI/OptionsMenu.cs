@@ -32,13 +32,13 @@ public class OptionsMenu : MonoBehaviour
     
     public void SetSoundVolume(float volume)
     {
-        audioMixer.SetFloat("SoundVolume", (volume + 80f) * 1.25f);
+        audioMixer.SetFloat("SoundVolume", volume);
         PlayerPreferencesManager.LoadedPlayerPreferences.soundVolume = volume;
     }
 
     public void SetMusicVolume(float volume)
     {
-        audioMixer.SetFloat("MusicVolume", (volume + 80f) * 1.25f);
+        audioMixer.SetFloat("MusicVolume", volume);
         PlayerPreferencesManager.LoadedPlayerPreferences.musicVolume = volume;
     }
 

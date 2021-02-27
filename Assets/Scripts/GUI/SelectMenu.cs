@@ -28,6 +28,7 @@ public class SelectMenu : MonoBehaviour
 
             createdButton.GetComponentInChildren<TMPro.TextMeshProUGUI>().text += i;
             createdButton.GetComponentInChildren<Button>().onClick.AddListener(() => LevelButtonClicked(temp));
+            createdButton.GetComponentInChildren<Button>().onClick.AddListener(() => AudioController.Instance.NormalButtonClicked());
             createdButton.name = i.ToString();
 
             LevelSelectButtons.Add(createdButton);

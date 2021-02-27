@@ -30,23 +30,27 @@ public class Support : MonoBehaviour, ISelectable, ISupport
     /// <param name="selected"></param>
     public void Hover(bool selected)
     {
-        if (selected)
+        try
         {
-            rd.material = hoveringMaterial;
-            Hovering = true;
+            if (selected)
+            {
+                rd.material = hoveringMaterial;
+                Hovering = true;
+            }
+            else
+            {
+                rd.material = normalMaterial;
+                Hovering = false;
+            }
         }
-        else
+        catch (MissingReferenceException e)
         {
-            rd.material = normalMaterial;
-            Hovering = false;
+            Debug.LogError(e);
         }
     }
 
     /// <summary>
     /// If this support gets clicked the move function of the character gets called provided with the supports position
     /// </summary>
-    public void Clicked()
-    {
-        Character.Instance.ClickedSupport(Position);
-    }
+    public void Clicked() => Character.Instance.ClickedSupport(Position);
 }

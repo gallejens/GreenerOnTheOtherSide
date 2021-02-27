@@ -50,6 +50,9 @@ public class Character : MonoBehaviour
                     Position = new Vector2(supportPosition.x, supportPosition.y);
                     tf.position = new Vector3(Position.x, tf.position.y, Position.y);
                     MouseSelection.Instance.Moved = true;
+
+                    AudioController.Instance.SupportClicked();
+
                     return;
                 }
             }
