@@ -27,7 +27,14 @@ public static class GenericMethods
     /// <returns></returns>
     public static T ReadJSONFile<T>(string file)
     {
-        string json = File.ReadAllText($"{Application.dataPath}/StreamingAssets/{file}.json");
+        string path = $"{Application.dataPath}/StreamingAssets/{file}.json";
+
+        if (!File.Exists(path))
+        {
+            File.WriteAllText($"{Application.dataPath}/StreamingAssets/{file}.json", "[\n]");
+        }
+
+        string json = File.ReadAllText(path);
         return JsonConvert.DeserializeObject<T>(json);
     }
 

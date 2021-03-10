@@ -22,7 +22,15 @@ public class PlayerPreferencesManager : MonoBehaviour
     {
         Instance = this;
 
-        LoadedPlayerPreferences = GenericMethods.ReadJSONFile<PlayerPreferences>("playerpreferences");
+        try
+        {
+            LoadedPlayerPreferences = GenericMethods.ReadJSONFile<PlayerPreferences>("playerpreferences");
+        }
+        catch (JsonSerializationException) 
+        {
+            // default sens value to 5 instead of 0 if no playerpreference files exists
+            LoadedPlayerPreferences.mouseSens = 5;
+        }
     }
 
     private void Start()
